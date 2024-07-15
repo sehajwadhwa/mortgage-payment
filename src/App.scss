@@ -3,6 +3,8 @@
 @use "../src/styles/partials/variables" as *;
 
 .app {
+  width: 50%;
+  margin: auto;
   @include desktop {
     display: flex;
   }

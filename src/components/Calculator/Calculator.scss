@@ -1,0 +1,48 @@
+@use "../../styles/global.scss" as *;
+@use "../../styles/partials/_fonts" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials//variables" as *;
+.Calculator {
+  &__header {
+    margin-bottom: 1rem;
+    font-family: "Plus-Jakarta";
+    h1 {
+      font-weight: 700;
+    }
+    font-weight: 100;
+  }
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    label {
+      font-family: "Plus-Jakarta";
+    }
+    &__input {
+      border: 1px solid black !important;
+      width: 50%;
+      margin-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      &--field {
+        border: none;
+        outline: none;
+        width: 100%;
+        padding-left: 10px;
+      }
+
+      span {
+        background-color: $Slate-300;
+        padding: 0.5rem;
+      }
+    }
+    &__radio {
+      border: 1px solid black !important;
+      width: 50%;
+      margin-top: 10px;
+      padding:1rem;
+      display: flex;
+      gap:10px;
+    }
+  }
+}
