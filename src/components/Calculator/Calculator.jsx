@@ -4,7 +4,7 @@ import { useState } from "react";
 import IconCalculator from "../../assets/images/icon-calculator.svg";
 import "./Calculator.scss";
 const Calculator = () => {
-  const [selectedOption, setSelectedOption] = useState("");
+  const [selectedOption, setSelectedOption] = useState("Repayment");
   const [formData, setFormData] = useState({
     mortgageAmount: "",
     term: "",
@@ -112,11 +112,11 @@ const Calculator = () => {
             <label>Interest Only</label>
           </div>
         </article>
-        <button type="submit">
+        <button type="submit" className="mortgage_submit">
           <span>
             <img src={IconCalculator} alt="Calculator Icon" />
           </span>
-          Calculate Repayments
+          {selectedOption==="Repayment"?"Calculate Repayments":"Calculate Interest Only"} 
         </button>
       </form>
     </div>

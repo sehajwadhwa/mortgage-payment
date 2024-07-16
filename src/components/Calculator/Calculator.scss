@@ -14,35 +14,52 @@
   &__form {
     display: flex;
     flex-direction: column;
-    gap: 1.2rem;
+    gap: 1.5rem;
     label {
       font-family: "Plus-Jakarta";
     }
     &__input {
-      border: 1px solid black !important;
-      width: 50%;
+   
       margin-top: 10px;
       display: flex;
       justify-content: space-between;
+
+      border: 1px solid $Slate-500;
       &--field {
         border: none;
         outline: none;
         width: 100%;
         padding-left: 10px;
+        font-size: 1rem;
       }
 
       span {
-        background-color: $Slate-300;
-        padding: 0.5rem;
+        background-color: $Slate-100;
+        padding: 1rem;
+        font-weight: 500;
       }
     }
     &__radio {
-      border: 1px solid black !important;
-      width: 50%;
+      border: 1px solid $Slate-500;
+ 
       margin-top: 10px;
-      padding:1rem;
+      padding: 1rem;
       display: flex;
-      gap:10px;
+      gap: 10px;
+    }
+    .mortgage_submit {
+    
+      padding: 1rem;
+      border-radius: 40px;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border: 0;
+      background-color: $lime-color;
+      color: $Slate-900;
+      font-weight: 700;
     }
   }
 }

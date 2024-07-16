@@ -3,8 +3,12 @@
 @use "../src/styles/partials/variables" as *;
 
 .app {
-  width: 50%;
+  width: 20%;
   margin: auto;
+  //background-color: aliceblue;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
   @include desktop {
     display: flex;
   }
