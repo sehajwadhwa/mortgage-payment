@@ -3,6 +3,7 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials//variables" as *;
 .Calculator {
+  margin: 1rem 0;
   &__header {
     margin-bottom: 1rem;
     font-family: "Plus-Jakarta";
@@ -19,12 +20,14 @@
       font-family: "Plus-Jakarta";
     }
     &__input {
-   
       margin-top: 10px;
       display: flex;
       justify-content: space-between;
 
       border: 1px solid $Slate-500;
+      :hover {
+        cursor: pointer;
+      }
       &--field {
         border: none;
         outline: none;
@@ -41,14 +44,44 @@
     }
     &__radio {
       border: 1px solid $Slate-500;
- 
       margin-top: 10px;
       padding: 1rem;
       display: flex;
       gap: 10px;
+   
+
+      &--radio:checked::before {
+        width:90px;
+        background-color: rgb(30, 103, 167);
+      }
+      &--radio {
+        width: 20px;
+        height: 20px;
+        border: 2px solid $Slate-500;
+        border-radius: 50%;
+        position: relative;
+        cursor: pointer;
+
+        &:checked::before {
+          content: "";
+
+          width: 12px;
+          height: 12px;
+          border-radius: 50%;
+
+          background-color: $lime-color;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+    }
+    .Calculator__form__radio:hover {
+      border: 1px solid $lime-color;
+      cursor: pointer;
     }
     .mortgage_submit {
-    
       padding: 1rem;
       border-radius: 40px;
       font-size: 1.2rem;
@@ -60,6 +93,25 @@
       background-color: $lime-color;
       color: $Slate-900;
       font-weight: 700;
+    }
+  }
+  &.error {
+    .Calculator__form__input,
+    .radio {
+      position: relative;
+      border-color: red;
+      margin-bottom: 20px;
+      span {
+        background-color: red;
+        color: $white;
+      }
+      &::after {
+        content: "The field is required";
+        color: red;
+        position: absolute;
+        bottom: -25px;
+        font-size: 15px;
+      }
     }
   }
 }

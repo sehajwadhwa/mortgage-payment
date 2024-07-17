@@ -4,20 +4,29 @@ import { useState } from "react";
 import IconCalculator from "../../assets/images/icon-calculator.svg";
 import "./Calculator.scss";
 const Calculator = () => {
-  const [selectedOption, setSelectedOption] = useState("Repayment");
+  const [selectedOption, setSelectedOption] = useState("");
   const [formData, setFormData] = useState({
     mortgageAmount: "",
     term: "",
     interestRate: "",
-    mortgageType: "Repayment",
+    mortgageType: "",
   });
-
+  const [errorFields, setErrorFields] = useState(false);
   const handleSubmit = (e) => {
-    e.preventdefault();
-    console.log(selectedOption);
-    if (selectedOption === "Interest Only") {
-      alert("Please select an option");
+    e.preventDefault();
+    console.log(formData);
+    if (
+      formData.mortgageAmount === "" ||
+      formData.term === "" ||
+      formData.interestRate === "" ||
+      formData.mortgageType === ""
+    ) {
+      console.log("Please fill out all fields");
+      setErrorFields(true);
     } else {
+      setErrorFields(false);
+      console.log(selectedOption);
+
       console.log("Submitted");
     }
   };
@@ -32,13 +41,17 @@ const Calculator = () => {
     });
     setSelectedOption("Repayment");
   };
+
   const handleChange = (e) => {
     console.log(e.target.value, e.target.name);
-    setFormData((prev) => ({ prev, [e.target.name]: e.target.value }));
-    setSelectedOption(e.target.value);
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    if (e.target.type === "radio") {
+      setSelectedOption(e.target.value);
+    }
+    console.log(formData);
   };
   return (
-    <div className="Calculator">
+    <div className={`Calculator ${errorFields ? "error" : ""}`}>
       <div className="Calculator__header">
         <h1>Mortgage Calculator</h1>
         <p onClick={handleClear} style={{ cursor: "pointer", color: "blue" }}>
@@ -47,7 +60,7 @@ const Calculator = () => {
       </div>
       <form className="Calculator__form" onSubmit={handleSubmit}>
         <article>
-          <label>Mortgage Amount</label>
+          <label>Mortgage Amount</label>{" "}
           <div className="Calculator__form__input">
             <span>
               <CurrencyPoundIcon />
@@ -61,6 +74,7 @@ const Calculator = () => {
             />
           </div>
         </article>
+        <section className="">
         <article>
           <label>Mortgage Term</label>
           <div className="Calculator__form__input">
@@ -87,26 +101,27 @@ const Calculator = () => {
             <span>%</span>
           </div>
         </article>
-        <article>
+        </section>
+        <article className="radio">
           <label>Mortgage Type</label>
           <div className="Calculator__form__radio">
             <input
-              className="Calculator__form__input--radio"
+              className="Calculator__form__radio--radio"
               type="radio"
               name="mortgageType"
               value="Repayment"
-              checked={selectedOption === "Repayment"}
+ 
               onChange={handleChange}
             />
             <label>Repayment</label>
           </div>
           <div className="Calculator__form__radio">
             <input
-              className="Calculator__form__input--radio"
+              className="Calculator__form__radio--radio"
               type="radio"
               name="mortgageType"
               value="Interest Only"
-              checked={selectedOption === "Interest Only"}
+        
               onChange={handleChange}
             />
             <label>Interest Only</label>
@@ -116,7 +131,9 @@ const Calculator = () => {
           <span>
             <img src={IconCalculator} alt="Calculator Icon" />
           </span>
-          {selectedOption==="Repayment"?"Calculate Repayments":"Calculate Interest Only"} 
+          {selectedOption === "Repayment"
+            ? "Calculate Repayments"
+            : "Calculate Interest Only"}
         </button>
       </form>
     </div>
