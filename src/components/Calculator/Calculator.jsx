@@ -1,19 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import CurrencyPoundIcon from "@mui/icons-material/CurrencyPound";
 import { useState } from "react";
 import IconCalculator from "../../assets/images/icon-calculator.svg";
 import "./Calculator.scss";
+import { MortgageContext } from "../context/MortgageContext";
 const Calculator = () => {
-  const [selectedOption, setSelectedOption] = useState("");
-  const [formData, setFormData] = useState({
-    mortgageAmount: "",
-    term: "",
-    interestRate: "",
-    mortgageType: "",
-  });
+  const { formData, setFormData, calculateMortgage } =
+    useContext(MortgageContext);
   const [errorFields, setErrorFields] = useState(false);
-  const [monthlyPayment, setMonthlyPayment] = useState(0);
-  const [totalRepayment, setTotalRepayment] = useState(0);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -24,30 +18,10 @@ const Calculator = () => {
       formData.interestRate === "" ||
       formData.mortgageType === ""
     ) {
-      console.log("Please fill out all fields");
       setErrorFields(true);
     } else {
       setErrorFields(false);
-      const totalMonths = formData.term * 12;
-      const monthlyIntRate = formData.interestRate / (12*100);
-      if (selectedOption === "Repayment") {
-        const monthlyIntRatePlus1 = monthlyIntRate + 1;
-        const toThePower = Math.pow(monthlyIntRatePlus1, totalMonths);
-        const numerator = monthlyIntRate * toThePower;
-        const denominator = toThePower - 1;
-        const dividend = numerator / denominator;
-
-        const monthlyPayment = dividend * formData.mortgageAmount;
-        const totalRepayment = monthlyPayment * totalMonths;
-        console.log(totalRepayment);
-        console.log(monthlyPayment);
-      } else {
-        const monthlyIntRateRepayment =
-          formData.mortgageAmount * monthlyIntRate;
-        const totalInterestPaid = monthlyIntRateRepayment * monthlyIntRate;
-        console.log(totalInterestPaid);
-      }
-      console.log(selectedOption);
+      calculateMortgage();
       console.log("Submitted");
     }
   };
@@ -58,18 +32,12 @@ const Calculator = () => {
       mortgageAmount: "",
       term: "",
       interestRate: "",
-      mortgageType: "Repayment",
+      mortgageType: "",
     });
-    setSelectedOption("Repayment");
   };
 
   const handleChange = (e) => {
-   // console.log(e.target.value, e.target.name);
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-    if (e.target.type === "radio") {
-      setSelectedOption(e.target.value);
-    }
-    //console.log(formData);
   };
   return (
     <div className={`Calculator ${errorFields ? "error" : ""}`}>
@@ -150,9 +118,9 @@ const Calculator = () => {
           <span>
             <img src={IconCalculator} alt="Calculator Icon" />
           </span>
-          {selectedOption === "Repayment"
-            ? "Calculate Repayments"
-            : "Calculate Interest Only"}
+          {formData.mortgageType === "Interest Only"
+            ? "Calculate Interest Only"
+            : "Calculate Repayments"}
         </button>
       </form>
     </div>

@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import CurrencyPoundIcon from "@mui/icons-material/CurrencyPound";
 import "./Result.scss";
+import { MortgageContext } from "../context/MortgageContext";
 const Result = () => {
+  const{totalRepayment,monthlyPayment}=useContext(MortgageContext);
   return (
     <div className="result">
       <h3>Your Results</h3>
@@ -15,7 +17,7 @@ const Result = () => {
           <span>
             <CurrencyPoundIcon />
           </span>
-          <span>1,797.74</span>
+          <span>{monthlyPayment.toFixed(2)}</span>
         </h2>
         <hr />
         <h4>Total you will Repay over the term</h4>
@@ -24,7 +26,7 @@ const Result = () => {
             <CurrencyPoundIcon />
           </span>
 
-          <span>539322.94</span>
+          <span>{totalRepayment.toFixed(2)}</span>
         </h3>
       </section>
     </div>
