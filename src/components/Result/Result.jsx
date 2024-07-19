@@ -5,7 +5,7 @@ import { MortgageContext } from "../context/MortgageContext";
 const Result = () => {
   const{totalRepayment,monthlyPayment}=useContext(MortgageContext);
   return (
-    <div className="result">
+    <div className="result">{console.log(totalRepayment,monthlyPayment) }
       <h3>Your Results</h3>
       <p>
         Your results are shown below based on the information you provided.To
@@ -17,7 +17,7 @@ const Result = () => {
           <span>
             <CurrencyPoundIcon />
           </span>
-          <span>{monthlyPayment.toFixed(2)}</span>
+          <span>{ monthlyPayment}</span>
         </h2>
         <hr />
         <h4>Total you will Repay over the term</h4>
@@ -26,7 +26,7 @@ const Result = () => {
             <CurrencyPoundIcon />
           </span>
 
-          <span>{totalRepayment.toFixed(2)}</span>
+          <span>{ totalRepayment}</span>
         </h3>
       </section>
     </div>

@@ -28,7 +28,7 @@ export const MortgageProvider = ({ children }) => {
       totalRepayment = monthlyPayment * totalMonths;
     } else {
       monthlyPayment = formData.mortgageAmount * monthlyIntRate;
-      totalRepayment = monthlyPayment * monthlyIntRate;
+      totalRepayment = (monthlyPayment*totalMonths) +formData.mortgageAmount;
     }
     setMonthlyPayment(monthlyPayment);
     setTotalRepayment(totalRepayment);

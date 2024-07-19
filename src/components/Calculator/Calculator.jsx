@@ -11,7 +11,7 @@ const Calculator = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
+
     if (
       formData.mortgageAmount === "" ||
       formData.term === "" ||
