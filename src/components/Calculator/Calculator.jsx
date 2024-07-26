@@ -43,7 +43,7 @@ const Calculator = () => {
     <div className={`Calculator ${errorFields ? "error" : ""}`}>
       <div className="Calculator__header">
         <h1>Mortgage Calculator</h1>
-        <p onClick={handleClear} style={{ cursor: "pointer", color: "blue" }}>
+        <p onClick={handleClear} style={{ cursor: "pointer" }}>
           Clear All
         </p>
       </div>
