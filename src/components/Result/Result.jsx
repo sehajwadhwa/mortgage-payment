@@ -3,9 +3,10 @@ import CurrencyPoundIcon from "@mui/icons-material/CurrencyPound";
 import "./Result.scss";
 import { MortgageContext } from "../context/MortgageContext";
 const Result = () => {
-  const{totalRepayment,monthlyPayment}=useContext(MortgageContext);
+  const { totalRepayment, monthlyPayment } = useContext(MortgageContext);
   return (
-    <div className="result">{console.log(totalRepayment,monthlyPayment) }
+    <div className="result">
+      {console.log(totalRepayment, monthlyPayment)}
       <h3>Your Results</h3>
       <p>
         Your results are shown below based on the information you provided.To
@@ -17,7 +18,7 @@ const Result = () => {
           <span>
             <CurrencyPoundIcon />
           </span>
-          <span>{ monthlyPayment}</span>
+          <span>{monthlyPayment}</span>
         </h2>
         <hr />
         <h4>Total you will Repay over the term</h4>
@@ -26,7 +27,7 @@ const Result = () => {
             <CurrencyPoundIcon />
           </span>
 
-          <span>{ totalRepayment}</span>
+          <span>{totalRepayment}</span>
         </h3>
       </section>
     </div>
