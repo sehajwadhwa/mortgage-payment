@@ -3,13 +3,10 @@
 @use "../src/styles/partials/variables" as *;
 
 .app {
-  width: 80%;
-  margin: auto;
-  //background-color: aliceblue;
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
   @include desktop {
+    background-color: aliceblue;
+    height: 100vh;
     display: flex;
+    align-items: center;
   }
 }

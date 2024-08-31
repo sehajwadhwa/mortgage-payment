@@ -63,7 +63,7 @@ const Calculator = () => {
             />
           </div>
         </article>
-        <section className="">
+        <section className="Calculator__Term">
           <article>
             <label>Mortgage Term</label>
             <div className="Calculator__form__input">

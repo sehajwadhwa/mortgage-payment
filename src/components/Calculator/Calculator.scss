@@ -3,15 +3,35 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials//variables" as *;
 .Calculator {
-  margin: 1rem 0;
+  background-color: white;
+  @include desktop {
+    flex: 0.5;
+    height: 100%;
+    padding: 2rem;
+  }
   &__header {
     margin-bottom: 1rem;
     font-family: "Plus-Jakarta";
     h1 {
       font-weight: 700;
     }
-    font-weight: 100;
+    p {
+      font-weight: 100;
+    }
+    @include desktop {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
   }
+  @include desktop {
+    &__Term {
+      display: flex;
+      justify-content: space-between;
+      gap: .5em;
+    }
+  }
+
   &__form {
     display: flex;
     flex-direction: column;
@@ -48,10 +68,9 @@
       padding: 1rem;
       display: flex;
       gap: 10px;
-   
 
       &--radio:checked::before {
-        width:90px;
+        width: 90px;
         background-color: rgb(30, 103, 167);
       }
       &--radio {
@@ -93,6 +112,9 @@
       background-color: $lime-color;
       color: $Slate-900;
       font-weight: 700;
+      @include desktop{
+       width:80%;
+      }
     }
   }
   &.error {
