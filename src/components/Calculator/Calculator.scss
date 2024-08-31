@@ -1,0 +1,139 @@
+@use "../../styles/global.scss" as *;
+@use "../../styles/partials/_fonts" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials//variables" as *;
+.Calculator {
+  background-color: white;
+  @include desktop {
+    flex: 0.5;
+    height: 100%;
+    padding: 2rem;
+  }
+  &__header {
+    margin-bottom: 1rem;
+    font-family: "Plus-Jakarta";
+    h1 {
+      font-weight: 700;
+    }
+    p {
+      font-weight: 100;
+    }
+    @include desktop {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+  @include desktop {
+    &__Term {
+      display: flex;
+      justify-content: space-between;
+      gap: .5em;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    label {
+      font-family: "Plus-Jakarta";
+    }
+    &__input {
+      margin-top: 10px;
+      display: flex;
+      justify-content: space-between;
+
+      border: 1px solid $Slate-500;
+      :hover {
+        cursor: pointer;
+      }
+      &--field {
+        border: none;
+        outline: none;
+        width: 100%;
+        padding-left: 10px;
+        font-size: 1rem;
+      }
+
+      span {
+        background-color: $Slate-100;
+        padding: 1rem;
+        font-weight: 500;
+      }
+    }
+    &__radio {
+      border: 1px solid $Slate-500;
+      margin-top: 10px;
+      padding: 1rem;
+      display: flex;
+      gap: 10px;
+
+      &--radio:checked::before {
+        width: 90px;
+        background-color: rgb(30, 103, 167);
+      }
+      &--radio {
+        width: 20px;
+        height: 20px;
+        border: 2px solid $Slate-500;
+        border-radius: 50%;
+        position: relative;
+        cursor: pointer;
+
+        &:checked::before {
+          content: "";
+
+          width: 12px;
+          height: 12px;
+          border-radius: 50%;
+
+          background-color: $lime-color;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+    }
+    .Calculator__form__radio:hover {
+      border: 1px solid $lime-color;
+      cursor: pointer;
+    }
+    .mortgage_submit {
+      padding: 1rem;
+      border-radius: 40px;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border: 0;
+      background-color: $lime-color;
+      color: $Slate-900;
+      font-weight: 700;
+      @include desktop{
+       width:80%;
+      }
+    }
+  }
+  &.error {
+    .Calculator__form__input,
+    .radio {
+      position: relative;
+      border-color: red;
+      margin-bottom: 20px;
+      span {
+        background-color: red;
+        color: $white;
+      }
+      &::after {
+        content: "The field is required";
+        color: red;
+        position: absolute;
+        bottom: -25px;
+        font-size: 15px;
+      }
+    }
+  }
+}

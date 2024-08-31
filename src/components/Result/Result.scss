@@ -1,0 +1,50 @@
+@use "../../styles/global.scss" as *;
+@use "../../styles/partials/_fonts" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials//variables" as *;
+
+.result {
+  background-color: $Slate-900;
+  padding: 1.2rem;
+  @include desktop {
+    flex: 0.5;
+    height: 100%;
+    padding: 2rem;
+    border-bottom-left-radius: 60px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    display: grid;
+    grid-template-rows: auto auto 1fr;
+  }
+  h3 {
+    color: $white;
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+  p {
+    color: $Slate-300;
+    font-size: 15px;
+  }
+  &-box {
+    background-color: black;
+    margin: 2rem 0;
+    box-shadow: 0px -12px 0px -5px $lime-color;
+    padding: 1.6rem;
+    border-radius: 10px;
+    @include desktop {
+      margin: 4rem 0;
+    }
+    h4 {
+      font-size: 15px;
+      color: $Slate-300;
+    }
+    &-h2 {
+      font-size: 45px;
+      color: $lime-color;
+      margin-bottom: 30px;
+      .icon {
+        font-size: 45px;
+      }
+    }
+  }
+}
