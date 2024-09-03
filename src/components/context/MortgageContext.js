@@ -26,7 +26,7 @@ export const MortgageProvider = ({ children }) => {
 
       monthlyPayment = dividend * formData.mortgageAmount;
       totalRepayment = monthlyPayment * totalMonths;
-    } else {
+    } else if(formData.mortgageType === "Interest Only") {
       monthlyPayment = formData.mortgageAmount * monthlyIntRate;
       totalRepayment = (monthlyPayment*totalMonths) +formData.mortgageAmount;
     }

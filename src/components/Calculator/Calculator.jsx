@@ -37,6 +37,7 @@ const Calculator = () => {
   };
 
   const handleChange = (e) => {
+    console.log(e.target.checked);
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
   return (
@@ -51,7 +52,7 @@ const Calculator = () => {
         <article>
           <label>Mortgage Amount</label>{" "}
           <div className="Calculator__form__input">
-            <span>
+            <span className="poundIcon">
               <CurrencyPoundIcon />
             </span>
             <input
@@ -74,7 +75,7 @@ const Calculator = () => {
                 name="term"
                 onChange={handleChange}
               />
-              <span>years</span>
+              <span className="years">years</span>
             </div>
           </article>
           <article>
@@ -87,7 +88,7 @@ const Calculator = () => {
                 value={formData.interestRate}
                 onChange={handleChange}
               />
-              <span>%</span>
+              <span className="percentage">%</span>
             </div>
           </article>
         </section>
@@ -100,8 +101,12 @@ const Calculator = () => {
               name="mortgageType"
               value="Repayment"
               onChange={handleChange}
+              //checked={formData.mortgageType === "Repayment"}
             />
-            <label>Repayment</label>
+            <div className="Calculator__form__radio_custom">
+              <span className="custom-radio"></span>
+              <label>Repayment</label>
+            </div>
           </div>
           <div className="Calculator__form__radio">
             <input
@@ -110,8 +115,12 @@ const Calculator = () => {
               name="mortgageType"
               value="Interest Only"
               onChange={handleChange}
+              //checked={formData.mortgageType === "Interest Only"}
             />
-            <label>Interest Only</label>
+            <div className="Calculator__form__radio_custom">
+              <span className="custom-radio"></span>
+              <label>Interest Only</label>
+            </div>
           </div>
         </article>
         <button type="submit" className="mortgage_submit">
