@@ -101,12 +101,10 @@ const Calculator = () => {
               name="mortgageType"
               value="Repayment"
               onChange={handleChange}
-              //checked={formData.mortgageType === "Repayment"}
+              checked={formData.mortgageType === "Repayment"}
             />
-            <div className="Calculator__form__radio_custom">
-              <span className="custom-radio"></span>
-              <label>Repayment</label>
-            </div>
+      
+            <label>Repayment</label>
           </div>
           <div className="Calculator__form__radio">
             <input
@@ -115,12 +113,11 @@ const Calculator = () => {
               name="mortgageType"
               value="Interest Only"
               onChange={handleChange}
-              //checked={formData.mortgageType === "Interest Only"}
+              checked={formData.mortgageType === "Interest Only"}
             />
-            <div className="Calculator__form__radio_custom">
-              <span className="custom-radio"></span>
-              <label>Interest Only</label>
-            </div>
+         
+
+            <label>Interest Only</label>
           </div>
         </article>
         <button type="submit" className="mortgage_submit">

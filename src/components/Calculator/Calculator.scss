@@ -75,12 +75,8 @@
       display: flex;
       gap: 10px;
       position: relative;
-
-      input[type="radio"] {
-        display: block;
-      }  
-     
     }
+
     .Calculator__form__radio:hover {
       border: 1px solid $lime-color;
       cursor: pointer;
