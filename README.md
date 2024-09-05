@@ -2,9 +2,6 @@
 
 This is a solution to the [Mortgage repayment calculator challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/mortgage-repayment-calculator-Galx1LXK73). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-
-
-
 ### The challenge
 
 Users should be able to:
@@ -19,13 +16,10 @@ Users should be able to:
 
 ![](./screenshots/desktop-error.png)![](./screenshots/desktop.png)![k](./screenshots/mobile-interest.png)![](./screenshots/mobile-repayment.png)
 
-
-
 **Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
 - Live Site URL: [mortgage-payment](https://main--mortgagepayment.netlify.app/)
 
 ## My process
@@ -39,18 +33,12 @@ Users should be able to:
 - Mobile-first workflow
 - [React](https://reactjs.org/) - JS library
 
-
-
 ### Useful resources
 
 - [Custom Radio Button](https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_custom_radio) - This helped me for custom radio button creation
 - [CreateContext Hook](https://react.dev/reference/react/useContext) - This is an amazing article which helped me finally useContext hook.
 
-
-
 ## Author
 
 - Website - [mortgage-payment](https://main--mortgagepayment.netlify.app/)
 - Frontend Mentor - [@AD9-1)](https://www.frontendmentor.io/profile/AD9-1)
-
-
