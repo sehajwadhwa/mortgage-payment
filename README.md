@@ -26,7 +26,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: [mortgage-payment](https://main--mortgagepayment.netlify.app/)
 
 ## My process
 
@@ -50,7 +50,7 @@ Users should be able to:
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
+- Website - [mortgage-payment](https://main--mortgagepayment.netlify.app/)
 - Frontend Mentor - [@AD9-1)](https://www.frontendmentor.io/profile/AD9-1)
 
 
